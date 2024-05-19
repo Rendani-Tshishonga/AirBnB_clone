@@ -5,6 +5,7 @@ command interpreter.
 
 """
 import cmd
+from models import storage
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
@@ -17,7 +18,15 @@ def do_EOF(self, arg):
 
 def emptyline(self):
     pass
+def do_create(self, arg):
+    if arg == "":
+        print("** class name missing **")
+    elif arg != storage.class_list():
+        print("** class doesn't exist **")
+    else:
+        
+    
 
 
-if __name__ == '__main__':
+ __name__ == '__main__':
     HBNBCommand(cmd.Cmd).cmdloop()

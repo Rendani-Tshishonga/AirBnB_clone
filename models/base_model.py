@@ -3,7 +3,7 @@
 
 from uuid import uuid4
 import datetime
-from engine.file_storage import FileStorage
+from models import storage
 
 class BaseModel:
     def __init__(self, *args, **kwargs):
@@ -27,7 +27,6 @@ def __str__(self):
 
 def save(self):
     updated_at = datetime.now()
-    storage = FileStorage()
     storage.save(self)
 
 def to_dict(self):

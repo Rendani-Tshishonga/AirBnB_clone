@@ -26,3 +26,8 @@ def reload(self):
         with open('FileStorage.__file_path', 'r') as f:
             FileStorage.__object = json.load(f)
         FileStorage.__object = FileStorage(FileStorage.__object)
+
+def class_list(self):
+    class_list = ["BaseModel", "City", "User", "Place",\
+            "State", "Review"]
+    return class_list
