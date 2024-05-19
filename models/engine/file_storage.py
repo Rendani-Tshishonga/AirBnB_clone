@@ -2,8 +2,8 @@
 import json
 
 class FileStorage:
-    self.__file_path = "file.json"
-    self.__object = {}
+    __file_path = "file.json"
+    __object = {}
 
 def all(self):
     return FileStorage.__object
@@ -17,7 +17,7 @@ def save(self):
     """ Retrieve a dictionary in __object attribute """
     FileStorage.__object = FileStorage.__object.to_json()
     with open ('FileStorage.__file_path', 'w') as f:
-        data = (for k, v in FileStorage.__object.items())
+        data = {for k, v in FileStorage.__object.items()}
         json.dump(data, f)
 
 def reload(self):
