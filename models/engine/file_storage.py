@@ -17,11 +17,12 @@ def save(self):
     """ Retrieve a dictionary in __object attribute """
     FileStorage.__object = FileStorage.__object.to_json()
     with open ('FileStorage.__file_path', 'w') as f:
-        json.dump(FileStorage.__object, f,  sort_keys=True)
+        data = (for k, v in FileStorage.__object.items())
+        json.dump(data, f)
 
 def reload(self):
     """ Deserializes the JSON file to __objects."""
     if FileStorage.__file_path != "":
         with open('FileStorage.__file_path', 'r') as f:
-            FileStorage.__object = json.load(FileStorage.__object)
-        storage = FileStorage(FileStorage.__object)
+            FileStorage.__object = json.load(f)
+        FileStorage.__object = FileStorage(FileStorage.__object)
