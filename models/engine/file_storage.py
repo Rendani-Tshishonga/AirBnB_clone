@@ -10,7 +10,7 @@ def all(self):
     return FileStorage.__object
 
 def new(self, obj):
-    FileStorage.__object = "{}.{}".format(type(obj).__name__,\
+    FileStorage.__object[key] = "{}.{}".format(type(obj).__name__,\
             obj.id)
     return FileStorage.__object
 
