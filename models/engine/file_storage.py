@@ -30,6 +30,18 @@ def reload(self):
         FileStorage.__object = {for k, v in my_dict.items()}
 
 def class_list(self):
-    class_list = ["BaseModel", "City", "User", "Place",\
-            "State", "Review"]
+    from models.base_model import BaseModel
+    from models.user import User
+    from models.city import City
+    from models.review import Review
+    from models.state import State
+    from models.place import Place
+
+    class_list = {"BaseModel": BaseModel,
+            "User": User,
+            "City": City,
+            "State": State,
+            "Place": Place,
+            "Review": Review
+            }
     return class_list
