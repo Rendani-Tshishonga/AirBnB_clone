@@ -3,7 +3,7 @@
 
 from uuid import uuid4
 import datetime
-from models import storage
+from models.engine import storage
 
 class BaseModel:
     """
@@ -26,9 +26,9 @@ class BaseModel:
                     self.__dict__["created_at"] = datetime.strptime(self.__dict__["created_at"])
                 elif key == "updated_at":
                     self.__dict__["updated_at"] = datetime.strptime(self.__dict__["updated_at"])
-                else
+                else:
                     self.__dict__[key] = kwargs[key]
-        else
+        else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
