@@ -32,18 +32,19 @@ def do_create(self, arg):
 def do_show(self, arg):
     if arg is None or arg == "":
         print("** class name missing **")
-    arguments = arg.split(' ')
-    elif arguments[0] is not in storage.class_list():
-        print("** class doesn't exist **")
-    elif arguments[1] is None:
-        print("** instance id missing **")
-    else:
-        key_pam = "{}.{}".format(arguments[0], arguments[1])
-        if key_pam is not in storage.all():
-            print("** no instance found **")
+    else: 
+        arguments = arg.split(' ')
+        if arguments[0] not in storage.class_list():
+            print("** class doesn't exist **")
+        elif arguments[1] is None:
+            print("** instance id missing **")
         else:
-            print(storage.all()[key_pam])
+            key_pam = "{}.{}".format(arguments[0], arguments[1])
+            if key_pam not in storage.all():
+                print("** no instance found **")
+            else:
+                print(storage.all()[key_pam])
 
 
- __name__ == '__main__':
+if __name__ == '__main__':
     HBNBCommand(cmd.Cmd).cmdloop()
