@@ -79,7 +79,7 @@ def do_all(self, arg):
     """ Make provision for the all command """
     else:
         object_list_1 = [str(obj) for key, obj in storage.all().items()]
-        print(object_list)
+        print(object_list_1)
         
 if __name__ == '__main__':
     HBNBCommand(cmd.Cmd).cmdloop()
