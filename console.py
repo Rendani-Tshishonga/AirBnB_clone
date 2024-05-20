@@ -44,7 +44,19 @@ def do_show(self, arg):
                 print("** no instance found **")
             else:
                 print(storage.all()[key_pam])
-
-
+def do_all(self, arg):
+    if arg is not None:
+        argument = arg.split(' ')
+        if argument[0] not in storage.class_list():
+            print("** class doesn't exist **")
+        else:
+            object_list = [str(obj) for key, obj in storage.all().items() if\
+                    type(obj).__name__ == argument[0]
+            print(object_list)
+    """ Make provision for the all command """
+    else:
+        object_list_1 = [str(obj) for key, obj in storage.all().items()]
+        print(object_list)
+        
 if __name__ == '__main__':
     HBNBCommand(cmd.Cmd).cmdloop()
