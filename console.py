@@ -44,6 +44,29 @@ def do_show(self, arg):
                 print("** no instance found **")
             else:
                 print(storage.all()[key_pam])
+
+def do_destroy(self, arg):
+    """
+    Deletes an instance based on the class name and id,
+    save the change into the JSON file
+    """
+    if arg is None:
+        print("** class name missing **")
+    else:
+        argument = arg.split(' ')
+        if argument[0] not in storage.class_list():
+            print("** class doesn't exist **")
+        elif argument[1] is None:
+            print("** instance id missing **")
+        else:
+            key_param = "{}.{}".format(argument[0], argument[1])
+            if key_param not in storage.all():
+                print("** no instance found **")
+            else:
+                del storage.all()[key_param]
+                storage.save()
+
+
 def do_all(self, arg):
     if arg is not None:
         argument = arg.split(' ')
