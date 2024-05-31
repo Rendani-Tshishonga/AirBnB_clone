@@ -1,8 +1,15 @@
 header {
 	background-color: white;
-	background-image: url("/images/logo.png");
-	background-repeat: no-repeat;
 	height: 70px;
 	width: 100%;
 	border-bottom: 1px solid #CCCCCC;
+	display: flex;
+	align-items: center;
+}
+header .icon {
+	width: 100px;
+	height: 60px;
+	background: url("/images/icon.png");
+	background-repeat: no-repeat;
+	padding-left: 20px;
 }
